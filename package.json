@@ -1,0 +1,23 @@
+{
+  "name": "zstream",
+  "version": "0.0.0",
+  "description": "Streaming interface for ZeroMQ events",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrayaustin/zstream.git"
+  },
+  "author": "Johnny Ray Austin <johnny@johnnyray.me>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "highland": "^1.25.4",
+    "zmq": "^2.7.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^0.9.1",
+    "should": "^4.0.4"
+  }
+}
