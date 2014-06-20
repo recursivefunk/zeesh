@@ -8,11 +8,11 @@ var fs = require( 'fs' );
 var fs2 = require( 'fs-extra' );
 var zmq = require( 'zmq' );
 var sock = zmq.socket( 'push' );
-var ZStream = require( '../index' );
+var Zeesh = require( '../index' );
 
-describe('ZStream', function(){
+describe('Zeesh', function(){
 
-  var z = new ZStream();
+  var z = new Zeesh();
   var tmpFile = './foo.txt';
   var opts = {
     host: '127.0.0.1',

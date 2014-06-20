@@ -4,8 +4,8 @@
   var fs = require( 'fs' );
   var zmq = require( 'zmq' );
   var sock = zmq.socket( 'push' );
-  var ZStream = require( 'zstream' );
-  var z = new ZStream();
+  var Zeesh = require( 'zeesh' );
+  var z = new Zeesh();
   // ZeroMQ connection
   var opts = {
     host: '127.0.0.1',
