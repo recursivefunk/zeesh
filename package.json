@@ -1,6 +1,6 @@
 {
   "name": "zstream",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Streaming interface for ZeroMQ events",
   "main": "index.js",
   "scripts": {
