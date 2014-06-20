@@ -15,13 +15,19 @@ var ZStream = function( opts ) {
   this._sub = zmq.socket( 'pull' );
   this._subscriptions = {};
   this._stream = _();
-  this._sub.on('message', function(msg){
-    self._stream.write( msg );
-  });
+  this._initStream();
+  this._shouldFork = false;
   return this;
 };
 
 util.inherits( ZStream, EventEmitter );
+
+ZStream.prototype._initStream = function() {
+  var self = this;
+  this._sub.on('message', function(msg){
+    self._stream.write( msg );
+  });
+};
 
 ZStream.prototype.connect = function() {
   var endpoint = 'tcp://' + this._host + ':' + this._port;
@@ -32,7 +38,17 @@ ZStream.prototype.connect = function() {
 
 ZStream.prototype.stream = function() {
   var self = this;
-  return this._stream;
+  if ( this._shouldFork ) {
+    return this._stream.fork();
+  } else {
+    this._shouldFork = true;
+    return this._stream;
+  }
+};
+
+ZStream.prototype.refresh = function() {
+  this._stream.destroy();
+  this._initStream();
 };
 
 
