@@ -57,6 +57,7 @@ describe('Zeesh', function(){
           item.should.startWith( 'foo ' );
         });
         fs2.removeSync( tmpFile );
+
         done();
       }
     }

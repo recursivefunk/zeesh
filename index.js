@@ -51,5 +51,9 @@ Zeesh.prototype.refresh = function() {
   this._initStream();
 };
 
+Zeesh.prototype.end = function() {
+  this._sub.close();
+};
+
 
 module.exports = Zeesh;
